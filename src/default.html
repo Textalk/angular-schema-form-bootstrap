@@ -2,10 +2,13 @@
      ng-class="{'has-error': form.disableErrorState !== true && hasError(), 'has-success': form.disableSuccessState !== true && hasSuccess(), 'has-feedback': form.feedback !== false }">
   <label class="control-label {{form.labelHtmlClass}}" ng-class="{'sr-only': !showTitle()}" for="{{form.key.slice(-1)[0]}}">{{form.title}}</label>
 
+  Form: {{ form }} <br>
   <input ng-if="!form.fieldAddonLeft && !form.fieldAddonRight"
          ng-show="form.key"
          type="{{form.type}}"
-         step="any"
+         min="{{form.min}}"
+         max="{{form.max}}"
+         step="{{form.step}}"
          sf-changed="form"
          placeholder="{{form.placeholder}}"
          class="form-control {{form.fieldHtmlClass}}"
