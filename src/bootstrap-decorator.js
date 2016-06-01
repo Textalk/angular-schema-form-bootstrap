@@ -12,13 +12,16 @@ function(decoratorsProvider, sfBuilderProvider, sfPathProvider) {
   // Tabs is so bootstrap specific that it stays here.
   var tabs = function(args) {
     if (args.form.tabs && args.form.tabs.length > 0) {
+      var tabLi = args.fieldFrag.querySelector('li');
+      tabLi.setAttribute(args.form.tabCondition === 'if' ? 'ng-if' : 'ng-show', '!tab.condition ? true : evalExpr(tab.condition, { model: model, "arrayIndex": $index })');
+      
       var tabContent = args.fieldFrag.querySelector('.tab-content');
 
       args.form.tabs.forEach(function(tab, index) {
         var div = document.createElement('div');
         div.className = 'tab-pane';
         div.setAttribute('ng-disabled', 'form.readonly');
-        div.setAttribute('ng-show', 'selected.tab === ' + index);
+        div.setAttribute(args.form.tabPaneCondition === 'if' ? 'ng-if' : 'ng-show', 'selected.tab === ' + index);
         div.setAttribute('ng-class', '{active: selected.tab === ' + index + '}');
 
         var childFrag = args.build(tab.items, args.path + '.tabs[' + index + '].items', args.state);
