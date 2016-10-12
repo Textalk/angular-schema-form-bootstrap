@@ -1,0 +1,7 @@
+<div class="row">
+  <div ng-repeat="n in [].constructor(form.columns) track by $index"
+       rds-column
+       ng-class="['col-xs-'+multiColCtrl.bootstrapCol, 'col-sm-'+multiColCtrl.bootstrapCol, 'col-md-'+multiColCtrl.bootstrapCol, 'col-lg-'+multiColCtrl.bootstrapCol]">
+    <div ng-transclude></div>
+  </div>
+</div>

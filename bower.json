@@ -3,6 +3,9 @@
   "authors": [
     "David Jensen (Textalk) <david.lgj@gmail.com>"
   ],
+  "main": [
+    "bootstrap-decorator.js"
+  ],
   "description": "Bootstrap 3 decorator for Angular Schema Form",
   "main": "bootstrap-decorator.js",
   "keywords": [
@@ -21,7 +24,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular-schema-form": ">= 0.8.7"
+    "angular-schema-form": "https://github.com/relational-data-systems/angular-schema-form.git#development"
   },
   "devDependencies": {
     "angular-ui-ace": "bower",

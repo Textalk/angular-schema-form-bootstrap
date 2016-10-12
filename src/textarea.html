@@ -9,7 +9,7 @@
             ng-disabled="form.readonly"
             sf-field-model
             schema-validate="form"
-            name="{{form.key.slice(-1)[0]}}"></textarea>
+            name="{{form.key.slice(-1)[0]}}"> </textarea><!-- add space to fix placeholder issue for textarea-->
 
   <div ng-if="form.fieldAddonLeft || form.fieldAddonRight"
        ng-class="{'input-group': (form.fieldAddonLeft || form.fieldAddonRight)}">
@@ -23,7 +23,7 @@
               ng-disabled="form.readonly"
               sf-field-model
               schema-validate="form"
-              name="{{form.key.slice(-1)[0]}}"></textarea>
+              name="{{form.key.slice(-1)[0]}}"> </textarea><!-- add space to fix placeholder issue for textarea-->
     <span ng-if="form.fieldAddonRight"
           class="input-group-addon"
           ng-bind-html="form.fieldAddonRight"></span>
