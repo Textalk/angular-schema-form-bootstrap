@@ -21,7 +21,7 @@
          ng-show="(hasError() && errorMessage(schemaError())) || form.description"
          ng-bind-html="(hasError() && errorMessage(schemaError())) || form.description"></div>
 
-    <button ng-hide="form.readonly || form.add === null"
+    <button ng-hide="form.readonly || form.add === null || form.disableAdd === true"
             ng-click="appendToArray()"
             ng-disabled="form.schema.maxItems <= modelArray.length"
             type="button"

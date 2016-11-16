@@ -1,5 +1,10 @@
 <div class="form-group has-feedback {{form.htmlClass}} schema-form-textarea" ng-class="{'has-error': form.disableErrorState !== true && hasError(), 'has-success': form.disableSuccessState !== true &&  hasSuccess()}">
-  <label class="control-label {{form.labelHtmlClass}}" ng-class="{'sr-only': !showTitle()}" for="{{form.key.slice(-1)[0]}}">{{form.title}}</label>
+  <label class="control-label {{form.labelHtmlClass}}" ng-class="{'sr-only': !showTitle()}" for="{{form.key.slice(-1)[0]}}">
+    {{form.title}}
+    <a ng-if="form.tooltip" data-toggle="tooltip" data-placement="right" title="{{form.tooltip}}">
+      <i class='glyphicon glyphicon-info-sign'></i>
+    </a>
+  </label>
 
   <textarea ng-if="!form.fieldAddonLeft && !form.fieldAddonRight"
             class="form-control {{form.fieldHtmlClass}}"
@@ -9,7 +14,7 @@
             ng-disabled="form.readonly"
             sf-field-model
             schema-validate="form"
-            name="{{form.key.slice(-1)[0]}}"></textarea>
+            name="{{form.key.slice(-1)[0]}}"> </textarea><!-- add space to fix placeholder issue for textarea-->
 
   <div ng-if="form.fieldAddonLeft || form.fieldAddonRight"
        ng-class="{'input-group': (form.fieldAddonLeft || form.fieldAddonRight)}">
@@ -23,7 +28,7 @@
               ng-disabled="form.readonly"
               sf-field-model
               schema-validate="form"
-              name="{{form.key.slice(-1)[0]}}"></textarea>
+              name="{{form.key.slice(-1)[0]}}"> </textarea><!-- add space to fix placeholder issue for textarea-->
     <span ng-if="form.fieldAddonRight"
           class="input-group-addon"
           ng-bind-html="form.fieldAddonRight"></span>

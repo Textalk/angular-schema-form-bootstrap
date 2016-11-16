@@ -2,7 +2,12 @@
      ng-class="{'has-error': form.disableErrorState !== true &&  hasError(), 'has-success': form.disableSuccessState !== true && hasSuccess()}">
   <label class="control-label {{form.labelHtmlClass}}"
         ng-show="showTitle()" sf-field-model
-        schema-validate="form" >{{form.title}}</label>
+        schema-validate="form" >
+        {{form.title}}
+        <a ng-if="form.tooltip" data-toggle="tooltip" data-placement="right" title="{{form.tooltip}}">
+          <i class='glyphicon glyphicon-info-sign'></i>
+        </a>
+      </label>
   <div>
       <label class="radio-inline" ng-repeat="item in form.titleMap" >
       <input type="radio"
@@ -11,7 +16,8 @@
              ng-disabled="form.readonly"
              sf-field-model
              ng-value="item.value"
-             name="{{form.key.join('.')}}">
+             radios-helper
+             name="{{radiosHelper.getName()}}">
       <span ng-bind-html="item.name"></span>
     </label>
   </div>

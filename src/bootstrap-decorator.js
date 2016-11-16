@@ -8,6 +8,7 @@ function(decoratorsProvider, sfBuilderProvider, sfPathProvider) {
   var sfField             = sfBuilderProvider.builders.sfField;
   var condition           = sfBuilderProvider.builders.condition;
   var array               = sfBuilderProvider.builders.array;
+  var complexValidation   = sfBuilderProvider.builders.complexValidation;
 
   // Tabs is so bootstrap specific that it stays here.
   var tabs = function(args) {
@@ -27,7 +28,7 @@ function(decoratorsProvider, sfBuilderProvider, sfPathProvider) {
       });
     }
   };
-  
+
   // Set tabArray sortOptions.items default.
   var tabArray = function(args) {
     if(args.form.hasOwnProperty('sortOptions')) {
@@ -66,7 +67,7 @@ function(decoratorsProvider, sfBuilderProvider, sfPathProvider) {
     }
   };
 
-  var defaults = [sfField, ngModel, ngModelOptions, condition];
+  var defaults = [sfField, ngModel, ngModelOptions, condition, complexValidation];
   decoratorsProvider.defineDecorator('bootstrapDecorator', {
     textarea: {template: base + 'textarea.html', builder: defaults},
     fieldset: {template: base + 'fieldset.html', builder: [sfField, simpleTransclusion, condition]},
@@ -74,6 +75,7 @@ function(decoratorsProvider, sfBuilderProvider, sfPathProvider) {
     tabarray: {template: base + 'tabarray.html', builder: [sfField, ngModelOptions, ngModel, array, condition, tabArray]},
     tabs: {template: base + 'tabs.html', builder: [sfField, ngModelOptions, tabs, condition]},
     section: {template: base + 'section.html', builder: [sfField, simpleTransclusion, condition]},
+    'btn-group': {template: base + 'btn-group.html', builder: [sfField, simpleTransclusion, condition]},
     conditional: {template: base + 'section.html', builder: [sfField, simpleTransclusion, condition]},
     actions: {template: base + 'actions.html', builder: defaults},
     select: {template: base + 'select.html', builder: [selectPlaceholder, sfField, ngModel, ngModelOptions, condition]},
@@ -87,6 +89,7 @@ function(decoratorsProvider, sfBuilderProvider, sfPathProvider) {
     'radios-inline': {template: base + 'radios-inline.html', builder: defaults},
     radiobuttons: {template: base + 'radio-buttons.html', builder: defaults},
     help: {template: base + 'help.html', builder: defaults},
+    keyContainer: {template: base + 'key-container.html', builder: [sfField, ngModel, simpleTransclusion, condition]},
     'default': {template: base + 'default.html', builder: defaults}
   }, []);
 
