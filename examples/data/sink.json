@@ -168,7 +168,10 @@
                 {
                   "key": "shoesizeLeft",
                   "feedback": false,
-                  "copyValueTo":["shoesizeRight"]
+                  "copyValueTo":["shoesizeRight"],
+                  "min": 0,
+                  "max": 100,
+                  "step": 5
                 },
                 {
                   "key": "shoesizeRight"

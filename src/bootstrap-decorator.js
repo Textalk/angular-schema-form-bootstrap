@@ -66,6 +66,16 @@ function(decoratorsProvider, sfBuilderProvider, sfPathProvider) {
     }
   };
 
+  var extraNumberFields = function(args, x, y) {
+    var input = args.fieldFrag.querySelector('input');
+    var numFields = ['min', 'max', 'step'];
+    numFields.forEach(function(field) {
+      if(field in args.form) {
+        input.setAttribute(field, args.form[field]);
+      }
+    });
+  };
+
   var defaults = [sfField, ngModel, ngModelOptions, condition];
   decoratorsProvider.defineDecorator('bootstrapDecorator', {
     textarea: {template: base + 'textarea.html', builder: defaults},
@@ -79,7 +89,7 @@ function(decoratorsProvider, sfBuilderProvider, sfPathProvider) {
     select: {template: base + 'select.html', builder: [selectPlaceholder, sfField, ngModel, ngModelOptions, condition]},
     checkbox: {template: base + 'checkbox.html', builder: defaults},
     checkboxes: {template: base + 'checkboxes.html', builder: [sfField, ngModelOptions, ngModel, array, condition]},
-    number: {template: base + 'default.html', builder: defaults},
+    number: {template: base + 'default.html', builder: defaults.concat([extraNumberFields])},
     password: {template: base + 'default.html', builder: defaults},
     submit: {template: base + 'submit.html', builder: defaults},
     button: {template: base + 'submit.html', builder: defaults},
