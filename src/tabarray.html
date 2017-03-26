@@ -28,7 +28,7 @@
 
   <div ng-class="{'col-xs-9': !form.tabType || form.tabType === 'left' || form.tabType === 'right'}">
     <div class="tab-content {{form.fieldHtmlClass}}">
-      <div class="tab-pane clearfix index{{$index}}"
+      <div class="tab-pane clearfix {{ 'tab' + selected.tab + ' index' + $index }}"
            sf-field-model="ng-repeat"
            ng-repeat="item in $$value$$ track by $index"
            ng-show="selected.tab === $index"
